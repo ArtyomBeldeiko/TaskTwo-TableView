@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39E36A0B2947DADC00E29DAE /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E36A0A2947DADC00E29DAE /* MainTableViewCell.swift */; };
 		39E5E4A829479CDE0003A5D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E5E4A729479CDE0003A5D3 /* AppDelegate.swift */; };
 		39E5E4AA29479CDE0003A5D3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E5E4A929479CDE0003A5D3 /* SceneDelegate.swift */; };
 		39E5E4B129479CDE0003A5D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39E5E4B029479CDE0003A5D3 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		39E36A0A2947DADC00E29DAE /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		39E5E4A429479CDE0003A5D3 /* ClvrtcTaskTwo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClvrtcTaskTwo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39E5E4A729479CDE0003A5D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39E5E4A929479CDE0003A5D3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,8 +41,17 @@
 			isa = PBXGroup;
 			children = (
 				39E5E4BD2947A27D0003A5D3 /* MainViewController.swift */,
+				39E36A092947DA5300E29DAE /* Cell */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		39E36A092947DA5300E29DAE /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				39E36A0A2947DADC00E29DAE /* MainTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		39E5E49B29479CDE0003A5D3 = {
@@ -160,6 +171,7 @@
 			files = (
 				39E5E4BE2947A27E0003A5D3 /* MainViewController.swift in Sources */,
 				39E5E4A829479CDE0003A5D3 /* AppDelegate.swift in Sources */,
+				39E36A0B2947DADC00E29DAE /* MainTableViewCell.swift in Sources */,
 				39E5E4AA29479CDE0003A5D3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
