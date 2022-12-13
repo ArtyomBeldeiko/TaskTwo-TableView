@@ -20,7 +20,7 @@ class MainViewController: UIViewController {
     
     private let mainTableView: UITableView = {
         let table = UITableView()
-//        table.register(<#T##cellClass: AnyClass?##AnyClass?#>, forCellReuseIdentifier: <#T##String#>)
+        table.register(MainTableViewCell.self, forCellReuseIdentifier: MainTableViewCell.identifier)
         table.backgroundColor = .clear
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
@@ -58,6 +58,4 @@ class MainViewController: UIViewController {
         NSLayoutConstraint.activate(backgroundViewContraints)
         NSLayoutConstraint.activate(mainTableViewConstraints)
     }
-    
-    
 }
