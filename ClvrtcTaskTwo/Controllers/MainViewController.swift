@@ -9,6 +9,9 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    var data = Data().dataArray.repeated(count: 100)
+    
+    
     //    MARK: - UI elements
     
     private let backgroundView: UIView = {
@@ -21,18 +24,21 @@ class MainViewController: UIViewController {
     private let mainTableView: UITableView = {
         let table = UITableView()
         table.register(MainTableViewCell.self, forCellReuseIdentifier: MainTableViewCell.identifier)
-        table.backgroundColor = .clear
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
     
-//    MARK: - viewDidLoad
+    //    MARK: - viewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         addSubviews()
         setConstraints()
+        
+        mainTableView.dataSource = self
+        mainTableView.delegate = self
+        
     }
     
     private func addSubviews() {
@@ -59,3 +65,23 @@ class MainViewController: UIViewController {
         NSLayoutConstraint.activate(mainTableViewConstraints)
     }
 }
+
+// MARK: - UITableViewDataSource, UITableViewDelegate
+
+extension MainViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.identifier, for: indexPath) as? MainTableViewCell else { return UITableViewCell() }
+        
+        cell.titleLable.text = "Title \(data[indexPath.row].title)"
+        cell.descriptionLable.text = "Description \(data[indexPath.row].description)"
+        cell.leadingImageView.image = data[indexPath.row].image
+        return cell
+    }
+    
+}
+
+
