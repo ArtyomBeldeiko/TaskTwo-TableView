@@ -11,30 +11,30 @@ class MainTableViewCell: UITableViewCell {
     
     static let identifier = "MainTableViewCell"
     
-    private let leadingImageView: UIImageView = {
+    lazy var leadingImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.backgroundColor = .gray
+        imageView.backgroundColor = .lightGray
+        imageView.layer.cornerRadius = frame.height / 2
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
-    private let titleLable: UILabel = {
+    lazy var titleLable: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 18, weight: .bold)
+        label.font = .systemFont(ofSize: 16, weight: .bold)
         label.textColor = .darkGray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private let descriptionLable: UILabel = {
+    lazy var descriptionLable: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 16, weight: .medium)
+        label.font = .systemFont(ofSize: 14, weight: .medium)
         label.textColor = .lightGray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -57,25 +57,25 @@ class MainTableViewCell: UITableViewCell {
     
     private func setConstraints() {
         let leadingImageViewConstraints = [
-            leadingImageView.heightAnchor.constraint(equalToConstant: 30),
-            leadingImageView.widthAnchor.constraint(equalToConstant: 30),
+            leadingImageView.heightAnchor.constraint(equalToConstant: 45),
+            leadingImageView.widthAnchor.constraint(equalToConstant: 45),
             leadingImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            leadingImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10)
+            leadingImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20)
         ]
         
         let titleLableConstraints = [
-            titleLable.topAnchor.constraint(equalTo: contentView.topAnchor),
+            titleLable.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             titleLable.leadingAnchor.constraint(equalTo: leadingImageView.trailingAnchor, constant: 15)
         ]
         
         let descriptionLableConstraints = [
             descriptionLable.topAnchor.constraint(equalTo: titleLable.bottomAnchor, constant: 5),
-            descriptionLable.leadingAnchor.constraint(equalTo: titleLable.leadingAnchor)
+            descriptionLable.leadingAnchor.constraint(equalTo: titleLable.leadingAnchor),
+            descriptionLable.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
         ]
         
         NSLayoutConstraint.activate(leadingImageViewConstraints)
         NSLayoutConstraint.activate(titleLableConstraints)
         NSLayoutConstraint.activate(descriptionLableConstraints)
     }
-    
 }
