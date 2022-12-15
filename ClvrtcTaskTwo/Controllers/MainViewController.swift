@@ -12,7 +12,7 @@ class MainViewController: UIViewController {
     var data = Data().dataArray.repeated(count: 100)
     
     
-    //    MARK: - UI elements
+    //    MARK: - UI Elements
     
     private let backgroundView: UIView = {
         let view = UIView()
@@ -109,6 +109,18 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         data.swapAt(sourceIndexPath.row, destinationIndexPath.row)
         tableView.isEditing = false
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let selectedItem = data[indexPath.row]
+        
+        let detailViewController = DetailViewController()
+        detailViewController.presentedIcon = selectedItem.image
+        detailViewController.presentedTitle = selectedItem.title
+        detailViewController.presentedDescription = selectedItem.description
+        
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
 
