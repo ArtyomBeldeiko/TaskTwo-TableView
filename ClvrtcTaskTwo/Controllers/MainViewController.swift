@@ -16,18 +16,19 @@ class MainViewController: UIViewController {
     
     private let backgroundView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(red: 248 / 255, green: 220 / 255, blue: 237 / 255, alpha: 1)
+        view.backgroundColor = UIColor(red: 241 / 255, green: 245 / 255, blue: 255 / 255, alpha: 1)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     private let mainTableView: UITableView = {
         let table = UITableView()
+        table.backgroundColor = .clear
         table.register(MainTableViewCell.self, forCellReuseIdentifier: MainTableViewCell.identifier)
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
-    
+        
     //    MARK: - viewDidLoad
     
     override func viewDidLoad() {
@@ -41,6 +42,22 @@ class MainViewController: UIViewController {
         mainTableView.dataSource = self
         mainTableView.delegate = self
         mainTableView.addGestureRecognizer(longPressGesture)
+    }
+    
+//    MARK: - viewWillAppear
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+//    MARK: - viewWillDisappear
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     private func addSubviews() {
@@ -119,6 +136,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         detailViewController.presentedIcon = selectedItem.image
         detailViewController.presentedTitle = selectedItem.title
         detailViewController.presentedDescription = selectedItem.description
+        detailViewController.title = "Title \(selectedItem.title)"
         
         navigationController?.pushViewController(detailViewController, animated: true)
     }

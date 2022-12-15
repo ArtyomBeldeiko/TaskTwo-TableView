@@ -9,6 +9,8 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
+    //    MARK: - Variables
+    
     var presentedIcon: UIImage?
     var presentedTitle: String?
     var presentedDescription: String?
@@ -55,7 +57,7 @@ class DetailViewController: UIViewController {
         return stackView
     }()
     
-//    MARK: - viewDidLoad
+    //    MARK: - viewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +72,8 @@ class DetailViewController: UIViewController {
             descriptionLable.text = "Description: \(description)"
         }
     }
+    
+    //    MARK: - viewDidLayoutSubviews
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
