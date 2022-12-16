@@ -28,7 +28,7 @@ class MainViewController: UIViewController {
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
-        
+    
     //    MARK: - viewDidLoad
     
     override func viewDidLoad() {
@@ -44,7 +44,7 @@ class MainViewController: UIViewController {
         mainTableView.addGestureRecognizer(longPressGesture)
     }
     
-//    MARK: - viewWillAppear
+    //    MARK: - viewWillAppear
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -52,7 +52,7 @@ class MainViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-//    MARK: - viewWillDisappear
+    //    MARK: - viewWillDisappear
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -84,7 +84,7 @@ class MainViewController: UIViewController {
         NSLayoutConstraint.activate(mainTableViewConstraints)
     }
     
-//    MARK: - Actions
+    //    MARK: - Actions
     
     @objc private func handleLongPressGesture(_ gesture: UILongPressGestureRecognizer) {
         mainTableView.isEditing = true

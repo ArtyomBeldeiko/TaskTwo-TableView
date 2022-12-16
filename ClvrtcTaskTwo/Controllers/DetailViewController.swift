@@ -15,7 +15,6 @@ class DetailViewController: UIViewController {
     var presentedTitle: String?
     var presentedDescription: String?
     
-    
     //    MARK: - UI Elements
     
     private let backgroundView: UIView = {
